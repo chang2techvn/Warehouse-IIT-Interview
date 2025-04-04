@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Copy csproj và restore dependencies
-COPY WarehouseAPI/*.csproj ./
+COPY *.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
-COPY WarehouseAPI/. ./
+COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
